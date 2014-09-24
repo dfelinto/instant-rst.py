@@ -8,8 +8,7 @@ Instead of the instructions below use:
 
   sudo pip install https://github.com/dfelinto/instant-rst.py/archive/blender-manual.zip
 
-And there is a new command-line argument (-i) to pass the image folder.
-The template and static folders are set separately, you can see the files in the ``blender-manual-static-template`` branch.
+And there is a new command-line argument (-i) to pass the image folder. This branch also add new template and static files.
 
 #################
 InstantRst Server
