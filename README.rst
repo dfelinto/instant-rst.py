@@ -1,4 +1,17 @@
 #################
+Blender Manual
+#################
+
+Instead of the instructions below use:
+
+.. code:: sh
+
+  sudo pip install https://github.com/dfelinto/instant-rst.py/archive/blender-manual.zip
+
+And there is a new command-line argument (-i) to pass the image folder.
+The template and static folders are set separately, you can see the files in the ``blender-manual-static-template`` branch.
+
+#################
 InstantRst Server
 #################
 
@@ -49,6 +62,10 @@ optional arguments:
                       The directory containing static 
                       files used by the template.
                       Defaults to a bundled rhythm.css_
+-s IMAGES_DIR, --images-dir IMAGES_DIR 
+                      The directory containing static 
+                      images used by the template.
+                      Defaults to /static/images
 
 
 To convert a rst document

@@ -7,3 +7,4 @@ STATIC_DIR = os.path.join( os.path.dirname(os.path.realpath(__file__)),'static')
 DEFAULT_PORT = 5676
 DEFAULT_BROWSER = 'firefox'
 SECRET_KEY = 'JO34h#F*$HFHA@#&('
+IMAGES_DIR = os.path.join( STATIC_DIR, 'images')

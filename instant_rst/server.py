@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, jsonify
+from flask import Flask, render_template, request, url_for, jsonify, send_from_directory
 from flask.ext.socketio import SocketIO, emit
 
 import os, sys
@@ -15,10 +15,15 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 socketio = SocketIO(app)
 
-def run(port, template_dir, static_dir):
+def run(port, template_dir, static_dir, images_dir):
     app.template_folder = template_dir
     app.static_folder = static_dir
+    app.images_dir = images_dir
     socketio.run(app, port=port)
+
+@app.route('/images/<name>')
+def images(name):
+    return send_from_directory(app.images_dir, name)
 
 
 @app.route("/", methods=['GET','PUT','POST','DELETE'])

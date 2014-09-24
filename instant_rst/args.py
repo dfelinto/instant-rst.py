@@ -1,7 +1,7 @@
 import argparse
 
 from instant_rst.config import DEFAULT_FILE, DEFAULT_PORT, DEFAULT_BROWSER, \
-    TEMPLATE_DIR, STATIC_DIR
+    TEMPLATE_DIR, STATIC_DIR, IMAGES_DIR
 
 def parse():
     parser = argparse.ArgumentParser(description='Preview rst Instantly')
@@ -20,5 +20,8 @@ def parse():
     parser.add_argument('-t', '--template-dir', dest='template_dir',
                         default=TEMPLATE_DIR,
                         help='Directory with template files for rendering')
+    parser.add_argument('-i', '--images-dir', dest='images_dir',
+                        default=IMAGES_DIR,
+                        help='Directory with image files for rendering')
 
     return parser.parse_args()
