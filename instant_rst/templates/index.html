@@ -2,8 +2,11 @@
 <head>
 <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<link rel="stylesheet" href="/static/rhythm.css">
-<link rel="stylesheet" href="/static/molokai.css">
+ <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="/static/css/theme.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 <script>
 
@@ -12,7 +15,10 @@
     socket.emit('socket connected', { my: 'data' });
   });
   socket.on('updatingContent', function (data) {
-    if (data.HTML != undefined){document.body.innerHTML= data.HTML;}
+    if (data.HTML != undefined){
+$('#thebody').html(data.HTML);
+//document.body.innerHTML= data.HTML;
+}
 
     var doc_height = $(document).height();
     // Note: $(window).height is not correct.
@@ -39,8 +45,44 @@
       });
 </script>
 </head>
-<body>
-    {{ HTML|safe }}
+<body class="wy-body-for-nav" role="document">
+  <div class="wy-grid-for-nav">
+
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="" class="fa fa-home">Navigation Menu</a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      {# MOBILE NAV, TRIGGLES SIDE NAV ON TOGGLE #}
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="">Dalai</a>
+      </nav>
+
+
+      {# PAGE CONTENT #}
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          {# include "breadcrumbs.html" #}
+          <div id="thebody" role="main">
+          {{ HTML|safe }}
+          </div>
+          {# include "footer.html" #}
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
 </body>
 </html>
 
