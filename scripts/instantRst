@@ -32,7 +32,7 @@ try:
         static_dir=ag.static_dir,
         images_dir=ag.images_dir)
 except:
-    print '\nSome error/exception occurred.'
-    print sys.exc_info()
+    print('\nSome error/exception occurred.')
+    print(sys.exc_info())
     p.terminate()
     sys.exit()
